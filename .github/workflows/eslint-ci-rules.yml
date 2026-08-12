@@ -1,0 +1,16 @@
+name: 'Eslint CI rules'
+
+on:
+  pull_request:
+    paths:
+      - package.json
+      - yarn.lock
+
+jobs:
+  eslint-ci-rules:
+    name: 'Eslint CI rules'
+    uses: technology-studio/github-workflows/.github/workflows/_eslint-ci-rules.yml@feat/eslint-ci-rules-activation
+    with:
+      package_manager: yarn
+    secrets:
+      TXO_ESLINT_RULES_BOT_PRIVATE_KEY: ${{ secrets.TXO_ESLINT_RULES_BOT_PRIVATE_KEY }}
